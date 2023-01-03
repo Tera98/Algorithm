@@ -35,7 +35,8 @@ public class Solution {
                 System.out.print(array[j] == 0 ? "" : array[j] + " ");
             }
             System.out.println();
-            br.close();
+            
         }
+        br.close();
     }
 }
