@@ -36,6 +36,6 @@ public class Solution {
             count = 0;
         }
         bw.flush();
-        bw.close();
+        bw.close(); 
     }
 }
