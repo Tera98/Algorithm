@@ -5,9 +5,9 @@ public class Solution {
         Scanner sc = new Scanner(System.in);
         String a = sc.next();
         
-        int char_num = a.length() - a.replace("#", "").length();
+        int charNum = a.length() - a.replace("#", "").length();
         
-        if(char_num>1){
+        if(charNum>1){
             System.out.println("HELP!");
         } else{
             System.out.println("HAHA!");
