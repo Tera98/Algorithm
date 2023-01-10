@@ -11,7 +11,8 @@ public class Solution {
             int lenString = sc.nextInt();
             int tryCount = sc.nextInt();
             String str = sc.next();
-
+            int result = 0;
+            
             for (int j = 0; j < tryCount; j++) {
 
                 int index1 = sc.nextInt();
@@ -28,9 +29,12 @@ public class Solution {
                     } else count += 1;
                     k++;
                 }
-                System.out.print(output && count >= 2 ? "1" : "0");
+                
+                if(output && count >= 2){
+                    result += 1;
+                }
             }
-            System.out.println();
+            System.out.println(result);
         }
     }
 }
