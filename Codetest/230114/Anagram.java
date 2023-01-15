@@ -20,7 +20,7 @@ public class Solution {
             bw.flush();
         }else{
             bw.write("False\n");
-            bw.flush();
+            bw.flush();    
         }
         bw.close();
     }
