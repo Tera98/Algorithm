@@ -1,3 +1,3 @@
-# Algoritm
+# Algorithm
 
 ### BackJoon & Programmers
