@@ -36,3 +36,7 @@ if n == 1:
     print(0)
 else:
     print(output)
+
+## 트리의 지름?
+## dps -> O(N)으로도 풀이 가능
+## dps로도 풀이 가능
