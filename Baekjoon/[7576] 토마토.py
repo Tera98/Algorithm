@@ -34,6 +34,11 @@ while out:
     else:
         out = True
 
-print(data)
-print(visit)
-print(maxi)
+output = 0
+for i in range(m):
+    if 0 in data[i]:
+        output = 1
+if output == 0:
+    print(maxi-1)
+else:
+    print(-1)
