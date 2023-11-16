@@ -1,44 +1,44 @@
 import sys
+from collections import deque
+
+
+def tomato(x, y):
+    global deq, visited
+    dx = [-1, 0, 1, 0]
+    dy = [0, 1, 0, -1]
+    for idx in range(4):
+        if 0 <= (x + dx[idx]) < m and 0 <= (y + dy[idx]) < n:
+            if data[x + dx[idx]][y + dy[idx]] > data[x][y] or data[x + dx[idx]][y + dy[idx]] == 0:
+                data[x + dx[idx]][y + dy[idx]] = data[x][y] + 1
+                if not visited[x + dx[idx]][y + dy[idx]]:
+                    deq.append([x + dx[idx], y + dy[idx]])
+                    visited[x + dx[idx]][y + dy[idx]] = True
+
 
 n, m = map(int, sys.stdin.readline().rstrip().split())
 data = []
-visit = [[False] * n for i in range(m)]
+visited = [[False] * n for i in range(m)]
 for i in range(m):
-    data.append(list(map(int, input().split())))
-a, b, maxi = 0, 0, 0
-out = True
+    data.append(list(map(int, sys.stdin.readline().rstrip().split())))
+maxi, output = 0, 0
+deq = deque()
 
+for i in range(m):
+    for j in range(n):
+        if data[i][j] == 1:
+            deq.append([i, j])
 
-def tomato(a, b):
-    dx = [-1, 0, 1, 0]
-    dy = [0, 1, 0, -1]
-    for i in range(4):
-        try:
-            if data[a + dx[i]][b + dy[i]] == 0 or data[a + dx[i]][b + dy[i]] > (data[a][b]):
-                data[a + dx[i]][b + dy[i]] = data[a][b] + 1
-        except IndexError:
-            pass
+while len(deq):
+    a, b = deq.popleft()
+    tomato(a, b)
 
-
-while out:
-    for i in range(m):
-        for j in range(n):
-            if data[i][j] != 0 and data[i][j] != -1 and visit[i][j] is False:
-                tomato(i, j)
-                out = False
-                visit[i][j] = True
-                if maxi < data[i][j]:
-                    maxi = data[i][j]
-    if out:
-        break
-    else:
-        out = True
-
-output = 0
 for i in range(m):
     if 0 in data[i]:
         output = 1
+    if maxi < max(data[i]):
+        maxi = max(data[i])
+
 if output == 0:
-    print(maxi-1)
+    print(maxi - 1)
 else:
     print(-1)
